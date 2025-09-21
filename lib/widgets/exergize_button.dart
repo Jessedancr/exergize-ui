@@ -8,7 +8,7 @@ class ExergizeButton extends StatefulWidget {
   const ExergizeButton({
     super.key,
     required this.onTap,
-    this.activeOpacity = 0.5,
+    this.activeOpacity = 0.3,
   });
 
   @override

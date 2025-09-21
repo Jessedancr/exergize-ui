@@ -6,7 +6,10 @@ class WorkoutTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
+
     return Container(
+      width: w * 0.55,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Color(0xFFB9AFF5),
@@ -20,7 +23,7 @@ class WorkoutTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CircleAvatar(
-                  radius: 25,
+                  radius: 20,
                   backgroundColor: Color(0xFFF6F6F6),
                   child: SvgPicture.asset('assets/workout.svg'),
                 ),

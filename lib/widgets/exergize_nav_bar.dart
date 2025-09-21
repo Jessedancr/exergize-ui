@@ -15,6 +15,7 @@ class ExergizeNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: Colors.transparent,
       currentIndex: selectedIndex,
       elevation: 0.0,
       onTap: onTap,

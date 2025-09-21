@@ -1,9 +1,9 @@
 import 'package:exergizeui/widgets/cta_button.dart';
 import 'package:exergizeui/widgets/food_calories_tile.dart';
 import 'package:exergizeui/widgets/meditate_tile.dart';
+import 'package:exergizeui/widgets/weekly_stats.dart';
 import 'package:exergizeui/widgets/workout_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -15,6 +15,9 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         // * APPBAR
@@ -22,7 +25,6 @@ class _DashboardState extends State<Dashboard> {
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
           toolbarHeight: 80,
-
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,6 +51,7 @@ class _DashboardState extends State<Dashboard> {
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // * "My plan"
               Row(
@@ -63,41 +66,23 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              // SizedBox(height: h * 0.02),
 
               // * Grid
               SizedBox(
-                height: 300,
-                child: StaggeredGrid.count(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-                  axisDirection: AxisDirection.right,
+                // color: Colors.deepPurple,
+                child: Wrap(
+                  spacing: 8.0,
+                  runSpacing: 8.0,
                   children: [
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: 1,
-                      mainAxisCellCount: 1.5,
-                      child: WorkoutTile(),
-                    ),
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: 1,
-                      mainAxisCellCount: 1.3,
-                      child: FoodCaloriesTile(),
-                    ),
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: 1,
-                      mainAxisCellCount: 1.21,
-                      child: CtaButton(),
-                    ),
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: 1,
-                      mainAxisCellCount: 1.0,
-                      child: MeditateTile(),
-                    ),
+                    WorkoutTile(),
+                    MeditateTile(),
+                    FoodCaloriesTile(),
+                    CtaButton(),
                   ],
                 ),
               ),
-              SizedBox(height: 42),
+              // SizedBox(height: h * 0.05),
 
               // * STATS
               Text(
@@ -108,6 +93,9 @@ class _DashboardState extends State<Dashboard> {
                   color: Color(0xFF252727),
                 ),
               ),
+
+              // SizedBox(height: h * 0.03),
+              WeeklyStats(),
             ],
           ),
         ),

@@ -5,7 +5,11 @@ class CtaButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
+
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 25),
+      width: w * 0.43,
       decoration: BoxDecoration(
         color: Color(0xFF252727),
         borderRadius: BorderRadius.circular(20),
@@ -21,6 +25,14 @@ class CtaButton extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Color(0xFFF6F6F6),
               ),
+            ),
+            Divider(
+              color: Color(0xFFCEFF67),
+              height: 4,
+              thickness: 8.0,
+              indent: 40.0,
+              endIndent: 40.0,
+              radius: BorderRadius.circular(12),
             ),
           ],
         ),
