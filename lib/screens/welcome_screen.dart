@@ -1,6 +1,7 @@
 import 'package:exergizeui/screens/bottom_nav_bar/nav_bar_wrapper.dart';
-import 'package:exergizeui/widgets/my_custom_clipper.dart';
 import 'package:exergizeui/widgets/exergize_button.dart';
+import 'package:exergizeui/widgets/my_custom_clipper.dart';
+import 'package:exergizeui/widgets/touchable_opacity.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -94,10 +95,11 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
 
-            ExergizeButton(
+            TouchableOpacity(
               onTap: () {
                 Get.to(() => NavBarWrapper(), transition: Transition.fadeIn);
               },
+              child: ExergizeButton(),
             ),
           ],
         ),
